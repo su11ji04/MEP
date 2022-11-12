@@ -1,0 +1,78 @@
+* {
+     font-family: 'NanumGothicExtraBold';
+}
+
+html {
+     scroll-behavior: smooth;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    text-align: left;
+
+    background-color: #02643E;
+
+}
+.back-btn {
+    padding-top: 25px;
+}
+.logo {
+    padding-left: 33.3%;
+}
+.login-box {
+    width: 50%;
+    margin: 60px auto 0px auto;
+}
+.login-input {
+
+    padding: 60px 80px 60px 80px;
+    border: 1px rgba(0, 0, 0, 0.175) solid;
+    border-radius: 0.375rem;
+    box-shadow: ;
+}
+
+.id {
+    border: 1px rgba(0, 0, 0, 0.175) solid;
+    border-radius: 0.375rem;
+    box-shadow: ;
+
+    background-image: url("/아이디 아이콘.png");
+    background-position: left;
+    background-size: 18%;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    padding: 50px;
+    font-size: x-large;
+    margin-bottom: 10px;
+    width: 85%;
+
+}
+.pw {
+    border: 1px rgba(0, 0, 0, 0.175) solid;
+    border-radius: 0.375rem;
+    box-shadow: ;
+
+    background-image: url("/비밀번호 아이콘.png");
+    background-position: left;
+    background-size: 18%;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    padding: 50px;
+    font-size: x-large;
+    width: 85%;
+}
+.login-btn {
+    border: none;
+    width: 98.2%;
+    margin-top: 30px;
+    padding: 20px;
+    background-image:url("/로그인하기 배경.png");
+    background-position: center;
+    background-size: auto;
+    color: gray;
+    text-align: center;
+    font-size: large;
+}

@@ -1,0 +1,109 @@
+
+* {
+     box-sizing: border-box;
+     font-family: 'NanumGothicExtraBold';
+}
+
+html {
+     scroll-behavior: smooth;
+}
+.main_btn {
+     position: absolute;
+     left: 85%;
+}
+/** banner section **/
+
+.main_banner {
+     background-color: #02643E;
+     padding: 20px 0px 0px 0px;
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     min-height: 914px;
+
+     display: flex;
+}
+
+.login_btn {
+     color: white;
+     background-color: #02643E;
+     border: none;
+     font-size: large;
+}
+.join_btn {
+     color: white;
+     background-color: #02643E;
+     border: none;
+     font-size: large;
+}
+.like {
+     background-color: #02643E;
+     border: none;
+}
+
+.logo {
+     align-content: center;
+     margin: 100px auto 100px auto;
+}
+.main_banner2 {
+     background-color: #E3F1E2;
+     padding: 10px;
+
+     display: grid;
+     grid-template-columns:repeat(2, 1fr);
+     text-align: right;
+
+}
+.category>button {
+     background-color: #E3F1E2;
+     margin: auto 4% auto 4%;
+     border: none;
+     font-size: large;
+}
+.banner2-btns>button {
+     background-color: #E3F1E2;
+     margin: auto 4% auto 4%;
+     border: none;
+     font-size: large;
+}
+
+.weather {
+     font-size: large;
+     text-align: center;
+     padding: 30px;
+}
+.store_list {
+     width: 92%;
+     margin: 0px auto 0px auto;
+}
+.card {
+     margin: 0px 5px 10px 5px;
+
+}
+.card-title {
+     text-align: center;
+     margin-bottom: 0px;
+}
+.score {
+     text-align: center;
+}
+
+.to_youtube {
+     text-align: right;
+     margin: 30px 0px 0px 0px;
+}
+.card > img {
+     height: 60%;
+     width: 90%;
+     margin: 20px 20px 10px 20px;
+}
+footer {
+     text-align: center;
+     background-color: #E3F1E2;
+     margin-top: 30px;
+     padding: 20px;
+     font-size: 10px;
+}
+
+
+
+
