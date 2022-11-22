@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- CSS only -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      <title>MEP</title>
+      <link rel="stylesheet" href="../static/css/indexstyle.css">
+      <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+      <script src=""></script>
+   </head>
+   <!-- body -->
+   <body class="main_page">
+      <!-- banner -->
+      <nav class="main_banner">
+         <div class="logo">
+            <a href="/"><img src="../static/images/logo.png" style="width: 100%; height: auto;"></a>
+         </div>
+         <div class="main_btn">
+            <button class="login_btn" type="button" onclick="location.href='login'">로그인</button>
+            <button class="join_btn" type="button" onclick="location.href='JoinUs'">회원가입</button>
+            <button class="like"><img src="../static/images/heart.png" width="35px"></button>
+         </div>
+      </nav>
+
+      <section class="main_banner2">
+         <div class="category">
+               <button type="button" onclick="location.href='./korea'">
+               <img src="../static/images/korea.png" style="width: 50px">
+               <br>한식
+            </button>
+               <button type="button" onclick="location.href='./china'">
+               <img src="../static/images/ch.png" style="width: 50px">
+               <br>중식
+            </button>
+            <button type="button" onclick="location.href='./japan'">
+               <img src="../static/images/jp.png" style="width: 50px">
+               <br>일식
+            </button>
+            <button type="button" onclick="location.href='./west'">
+               <img src="../static/images/western.png" style="width: 50px">
+               <br>양식
+            </button>
+            <button type="button" onclick="location.href='./fast'">
+               <img src="../static/images/fast.png" style="width: 50px">
+               <br>패스트푸드
+           </button>
+           <button type="button" onclick="location.href='./dessert'">
+               <img src="../static/images/dessert.png" style="width: 50px">
+               <br>디저트
+          </button>
+         </div>
+         <div class="banner2-btns">
+                <button type="button" onclick="location.href='./food_course'">
+                   쩝쩝박사 코스
+                </button>
+                 <button type="button" onclick="location.href='./write_mep'">
+                   맛집 등록
+                </button>
+         </div>
+      </section>
+
+      <section class="store_list">
+         <div id="stores" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="store" class="col">
+               <div class="card h-100">
+                  <img src="../static/images/lo.jpeg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                     <h5 class="card-title">롯데리아</h5>
+                     <p class="score"><img src="../static/images/star.png" width="35px" >4.7</p>
+                     <p class="to_youtube"><img src="../static/images/youtubelogo.png" width="50px"></p>
+                  </div>
+               </div>
+            </div>
+            <div class="col">
+               <div class="card h-100">
+                  <img src="../static/images/king.jpeg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                     <h5 class="card-title">버거킹</h5>
+                     <p class="score"><img src="../static/images/star.png" width="35px" >4.7</p>
+                     <p class="to_youtube"><img src="../static/images/youtubelogo.png" width="50px"></p>
+                  </div>
+				</div>
+            </div>
+            <div class="col">
+				<div class="card h-100">
+					<img src="../static/images/mom.jpeg" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">맘스터치</h5>
+						<p class="score"><img src="../static/images/star.png" width="35px" >4.7</p>
+						<p class="to_youtube"><img src="../static/images/youtubelogo.png" width="50px"></p>
+					</div>
+				</div>
+			 </div>
+		  </div>
+      </section>
+
+  <footer>
+    EWHA WOMANS UNIVERSITY
+    <br> Open SW Platform
+    <br> Copyright 2022.505.All Rights Reserved
+  </footer>
+
+      <script>
+      </script>
+   </body>
+</html>

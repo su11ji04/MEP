@@ -1,0 +1,120 @@
+
+* {
+     box-sizing: border-box;
+     font-family: 'NanumGothicExtraBold';
+}
+
+html {
+     scroll-behavior: smooth;
+}
+.main_btn {
+     white-space: nowrap;
+    
+     display: flex;
+     justify-content:flex-end;
+}
+/** banner section **/
+
+.main_banner {
+     background-color: #02643E;
+     padding: 20px 0px 0px 0px;
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     min-height: 914px;
+    
+     display: flex;
+     flex-direction:column;
+}
+
+.login_btn {
+     color: white;
+     background-color: #02643E;
+     border: none;
+     font-size: large;
+}
+.join_btn {
+     color: white;
+     background-color: #02643E;
+     border: none;
+     font-size: large;
+}
+.like {
+     background-color: #02643E;
+     border: none;
+}
+
+.main_banner2 {
+     max-width: 50%;
+     height: auto;
+     align-content: center;
+     background-color: #E3F1E2;
+     padding: 10px;
+     display: flex;
+     justify-content: center;
+
+     display: flex;
+     justify-content:flex-start;
+     flex-direction: row;
+}
+.category, .banner2-btns{
+     display: flex;
+     justify-content:flex-start;
+     flex-direction: row;
+     flex-wrap: nowrap;
+}
+.category>button, .banner2-btns>button {
+     background-color: #E3F1E2;
+     position: relative;
+     white-space: nowrap;
+     
+     margin: auto 10px auto 10px;
+     border: none;
+     font-size: large;
+
+}
+.banner2-btns {
+    margin-left:auto;
+}
+
+.weather {
+     font-size: large;
+     text-align: center;
+     padding: 30px;
+}
+.store_list {
+     width: 92%;
+     margin: 0px auto 0px auto;
+}
+.card {
+     margin: 0px 5px 10px 5px;
+
+}
+.card-title {
+     text-align: center;
+     margin-bottom: 0px;
+}
+.score {
+     text-align: center;
+}
+
+.to_youtube {
+     text-align: right;
+     margin: 30px 0px 0px 0px;
+}
+.card > img {
+     height: 60%;
+     width: 90%;
+     margin: 20px 20px 10px 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #E3F1E2;
+    margin-top: 30px;
+    padding: 20px;
+    font-size : 10px;
+}
+
+
+
+

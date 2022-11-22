@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css">
+    <link rel="stylesheet" href="../static/css/joinUs.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link href="../static/css/joinUs.css" rel="stylesheet" type="text/css" /> -->
+    
+    <style>
+        .joinus{
+            height : auto; 
+            width : 1000px; 
+            border:1px solid grey; 
+            padding-top: 20px;
+            padding-right: 10px;
+            padding-bottom: 80px;
+            padding-left: 10px; 
+            margin : auto;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #E3F1E2;
+            margin-top: 30px;
+            padding: 20px;
+            font-size : 10px;
+        }
+
+        * {
+            font-family: 'NanumGothicExtraBold';
+         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #02643E;
+        }
+
+        .logo {
+            padding-left: 150px;
+        }
+
+        .back-btn {
+            padding-top: 25px;
+        }
+    </style>
+</head>    
+    
+<body>
+    {% extends "mep_registration.html" %}
+    
+    {% block section %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+    <div class="joinus">
+        <h2>M.E.P와 함께 이대 맛집 정복 끝!</h2>
+        <br>
+
+        <p style="text-align: left; padding-left:125px"><strong>아이디(전화번호) :</strong></p>
+        <input type="tel" style="width:500px; height: 50px;" placeholder=전화번호('-'없이입력)>
+        <br>
+        <br>
+
+        <p style="text-align: left; padding-left:125px"><strong>비밀번호 :</strong></p>
+        <input type="password" style="width:500px; height: 50px;" placeholder=8~16자리 영문 대소문자,숫자,특수문자 조합>
+        <br>
+        <br>
+
+        <p style="text-align: left; padding-left:125px"><strong>닉네임 :</strong></p>
+        <input type="text" style="width:500px; height: 50px;" placeholder=닉네임 입력>
+        <br>
+        <br>
+
+        <p style="text-align: left; padding-left:125px"><strong>생년월일 :</strong></p>
+        <input type="date" style="width:500px; height: 50px;">
+        <br>
+        <br>
+
+        <button type="button" class="btn btn-outline-secondary">회원가입 완료</button>
+
+        </div>
+ {% endblock section %}
+    </body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="../static/css/mep_registration.css"> -->
+    <title>맛집 등록 화면</title>
+    
+      <style>
+        * {
+          box-sizing: border-box;
+          font-family: NanumGothicLight;
+        }
+
+        body {
+          /* padding: 10px; */
+          background: white;
+        }
+
+        /* Header/Blog Title */
+        /* header {
+          padding: 20px 20px;
+          text-align: center;
+          background: #02643E;
+        } */
+          
+          header {
+              background-color: #02643E;
+              margin: 0;
+              
+              display: flex;
+              flex-direction: row;
+          }
+          
+          .backbar {
+              align-self: flex-start;
+          }
+          
+          .logo {
+              align-self: center;
+              width: 20%;
+          }
+
+
+        section {
+          margin: 0 auto;
+          margin-bottom: 5%;
+          margin-top: 5%;
+          width: 95%;
+          height: 95%;
+        }
+
+        table, th, td{
+            text-align: center;
+            width: 20%;
+
+        }
+
+        .card {
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+        }
+
+        .box1{
+            background: #E3F1E2;
+            padding: 15px;
+            color: #E3F1E2;
+        }
+
+        h1 {
+          font-size: 50px;
+          color: #F2EEE2;
+        }
+
+        .box2{
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+            width: 50%;
+            background: #F2EEE2;
+            padding: 5px;
+            text-align: center;
+            height: 50%;
+            margin: 0 auto;
+
+        }
+
+        .blank {
+          padding: 20px;
+        }
+
+        input{
+            float: center;
+        }
+
+        .input-file-button {
+          width: 60px;
+          height: 80px;
+          background-color: #F2EEE2;
+          font-size: 50px;
+          color: #444;
+          text-align: center;
+          margin: 0 auto;
+          margin-bottom: 30px;
+          padding: 5px 10px;
+          cursor: pointer;
+          display:block;
+        }
+
+        .box3{
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+            width: 80%;
+            height: 30px;
+            background: #F2EEE2;
+            padding: 5px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .pict-review{
+            float:left;
+            padding-left:250px;
+            padding-right:700px;
+        }
+
+        .input-file-button {
+            width: 60px;
+            height: 80px;
+            background-color: #F2EEE2;
+            font-size: 50px;
+            color: #444;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display:block;
+
+        }
+
+        textarea{
+            width: 100%;
+            border: 1px solid grey;
+            resize: none;
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #E3F1E2;
+            margin-top: 30px;
+            padding: 20px;
+            font-size : 10px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+          section, aside {
+            width: 100%;
+            padding: 0;
+          }
+        }
+
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+          nav a {
+            float: none;
+            width: 100%;
+          }
+        }      
+      </style>
+    </head>
+    <body>
+      <header class="header">
+		 <!-- <table width="100%;" height="130px;">
+		<tr>
+			<th><a href="https://ewha505.run.goorm.io/"><img class="back-btn" src="../static/images/backbar.png" width="50px" style="float: left;"></a></th>
+			<th><div style="margin-left: 675px;"></div></th>
+			<th><img class="logo" src="../static/images/logo.png" width="200px" alt="logo" style="float: left;"></th>
+		</tr>
+	    </table> -->
+          <a href="https://ewha505.run.goorm.io/"><img class="back-btn" src="../static/images/backbar.png"></a>
+          <img class="logo" src="../static/images/logo.png">
+	  </header>
+        
+        <div class="box1"></div>
+
+    {% block section %}
+<section>
+    <form method="post" enctype="multipart/form-data" action="/submit_registration">
+	<div class="card">
+		<div class="blank"></div>
+
+		<table style="width: 100%;">
+			<tr>
+				    <th><div class="box2">이름</div></th>
+				    <th><input style="float: left;" type="text" name="name"></th>
+				    <th><div class="box2">Category</div></th>
+					<th>
+					    <select style="float: left;" id="category" name="category">
+							<option selected>한식</option>
+						    <option>일식</option>
+						    <option>양식</option>
+						    <option>중식</option>
+						    <option>디저트</option>
+						 </select>
+					</th>
+          <th>
+          	<div class="box2">대표 사진</div>
+          </th>
+			</tr>
+		</table>
+
+		<div class="blank"></div>
+
+		<table style="width: 100%;">
+			<tr>
+				<th><div class="box2" name="position">위치</div></th>
+				<th><img style="float: left;" name="location" src="../static/images/location.png" alt="location" width= "400px;" height= "200px;"></th>
+				<th><div class="box2" >영업 시간</div></th>
+				<th><input style="float: left;" type="text" name="time"></th>
+                <th>
+                    <div>
+                     <label class="input-file-button" for="input-file">+</label>
+                     <input type="file" name="file" id="input-file" style="display:none;" >
+                    </div>
+                </th>
+			</tr>
+		</table>
+
+		<div class="blank"></div>
+
+		<div class="box3"><a href="/add_menu">음식 등록창으로 이동</a></div>
+
+		<div class="blank"></div>
+
+
+		<table style="width: 100%;">
+			<tr>
+				<th><div style="float: right;" class="box2">추천 메뉴</div></th>
+				<th><input type="text" name="recommend_menu"></th>
+				<th><div style="float: right;" class="box2" >가격대</div></th>
+				<th>
+					<select id="price" name="price">
+						<option selected>10000 이하</option>
+						<option>20000 이하</option>
+						<option>30000 이하</option>
+						<option>40000 이하</option>
+						<option>50000 이하</option>
+						<option>50000 초과</option>
+					</select>
+				</th>
+			</tr>
+		</table>
+
+		<div class="blank"></div>
+
+
+		<table style="width: 100%;">
+			<tr>
+				<th style="width: 10%;"><div class="box2" style="float: right;">예약</div></th>
+			    <th style="width: 3%"></th>
+			    <th style="width: 50%;"><textarea float="left;" cols="10" row="100"name="reservation"></textarea></th>
+				<th style="width: 3%"></th>
+	    	</tr>
+		</table>
+
+		<div class="blank"></div>
+
+		<table style="width: 100%;">
+			<tr>
+				<th style="width: 10%;"><div class="box2" style="float: right;">기타</div></th>
+			    <th style="width: 3%"></th>
+			    <th style="width: 50%;"><textarea float="left;" cols="10" row="100" name="extra"></textarea></th>
+				<th style="width: 3%"></th>
+	    	</tr>
+		</table>
+
+		<div class="blank"></div>
+        <input type="submit" id="mep_registration_data" value="맛집 등록하기">
+    </div>
+    </form>
+  </section>
+    {% endblock section %}
+
+
+  <footer>
+    EWHA WOMANS UNIVERSITY
+    <br> Open SW Platform
+    <br> Copyright 2022.505.All Rights Reserved
+  </footer>
+
+
+</body>
+</html>
