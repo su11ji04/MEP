@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>new_menu</title>
+</head>
+<body>
+<!--<img src="{{menu_image_path}}" alt="My Image">  -->
+    {{menu_image_path}}
+<img src="{{menu_image_path}}" alt="My Image" style="width:50px">    
+
+<!--<form method="post" action="/Add_Menu"> -->
+<form method="post" action="/register_menu">
+    <input type="hidden" name="Add_Menu" value="{{data.name}}"> 
+    <div>
+        <p>
+            It's time to register the representative menu in {{data.menu_name}}
+        </p>
+        <!-- <button type="submit" name="menu">Register Menu</button><br><br> -->
+        <!--<a href="/add_menu">-->
+    </div> 
+</form>
+    
+<section>
+    <ul>
+        <li>이름: {{data.menu_name}} </li>
+        <li>가격대: {{data.menu_price}}</li>
+        <li>예약: {{data.menu_info}}</li>
+    </ul>
+</section>
+</body>
+</html>
