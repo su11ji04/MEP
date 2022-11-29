@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리뷰조회화면</title>
+    <!-- <link rel="stylesheet" href="../static/css/Review.css"> -->
+    
+    <style>
+            /*header {
+            background-color: #02643E;
+            width: 100%;
+            height: 80px;
+            text-align: center;
+            margin-bottom: 50px;
+        }*/
+        /* .banner {
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #02643E;
+        } */
+        /* .back-btn {
+            padding-top: 25px;
+        }
+        .logo {
+            padding-left: 150px;
+        }
+ */
+        #bar2 {
+            background-color: #E3F1E2;
+            width: 100%;
+            height: 20px;
+        }
+        main {
+            background-color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+        #base {
+            width:100%;
+        }
+        #bar3 {
+            width: 300px;
+            height: 2px;
+            background-color:black;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+        .pict-review{
+            float:left;
+            padding-left:250px;
+            padding-right:700px;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            justify-content: space-around;
+            padding: 0 0.2em;
+            text-align: center;
+            width: 5em;
+            margin: 0 auto;
+            margin-top: 0px;
+        }
+        .star-rating input {
+            display: none;
+        }   
+        .star-rating label {
+            -webkit-text-fill-color: #bbb; 
+            -webkit-text-stroke-width: 2.3px;
+            -webkit-text-stroke-color: #bbb;
+            cursor: pointer;
+        }  
+        .star-rating :checked ~ label {
+            -webkit-text-fill-color: gold;
+            -webkit-text-stroke-color: gold;
+        }  
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            -webkit-text-fill-color: #fff58c;
+            -webkit-text-stroke-color: #fff58c;
+        }
+
+        textarea {
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #text-and-image {
+            width:100%;
+            height: fit-content;
+        }
+
+        .input-file-button{
+            width: 60px;
+            height: 80px;
+            background-color: #F2EEE2;
+            font-size: 50px;
+            color: #444;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display:block;
+        }
+        #hash-tag {width:90%; height:160px; overflow-x:auto; white-space:nowrap; margin:0 auto}
+        .hash-tag-list {
+            list-style: none;
+            width: 700px;
+            height: 100px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 0 auto;
+            margin-top: 30px;
+            columns: 3;
+            padding-left:5px;
+        }
+        .hash-tag-list li{
+            width:190px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px auto;
+            margin-right: 5px;
+            padding: 5px 10px;
+            float:left;
+        }
+
+        input[type="checkbox"] {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 1px solid #999;
+            appearance: none;
+            cursor: pointer;
+            transition: background 0.2s;
+          }
+
+        input[type="checkbox"]:checked {
+            background: #02643E;
+            border: none;
+        }
+        #review-upload-button {
+            float:initial;
+            text-align:center;
+            padding: 10px 15px;
+            background-color:#F2EEE2;
+            border:none;
+            cursor: pointer;
+        }
+
+
+        /*review check html*/
+        #info-and-photoreview{
+            margin-top: 25px;
+            width: fit-content;
+            margin:0 auto;
+        }
+        #information {
+            width: max-content;
+            height: 145px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            text-align: center;
+            background-color:#F2EEE2;
+            padding: 30px 20px;
+            float:left;
+            margin-right:45px;
+
+        }
+
+        #photo-reviews {
+            width: max-content;
+            height: 190px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 5px;
+            float:left;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        #photo-reviews ul{
+            list-style-type: none;
+            columns:4;
+            padding: 3px;
+        }
+        #photo-reviews li img{
+            width: 105px;
+            height:80px;
+            margin-left: 2px;
+            margin-bottom: 5px;
+
+        }
+
+        #hashtag-and-detail{
+            width: fit-content;
+            clear: both;
+            margin: 0 auto;
+
+        }
+        #hashtag-reviews {
+            padding: 2px;
+            float:left;
+            margin-right:45px;
+        }
+        #num {
+            float:right;
+            font-size: 13px;
+            color:#02643E;
+            text-align:center;
+            width:20px;
+            height:20px;
+            background-color:#F2EEE2;
+            border-radius:50%;
+        }
+        #hashtag-reviews ul {
+            list-style-type: none;
+            width:fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            height:fit-content;
+            column-count: 1;
+            align-content: center;
+            padding-left:0px;
+        }
+        #hashtag-reviews li{
+            width:250px;
+            padding-left:0px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px 5px auto auto;
+            margin-right: 5px;
+            margin-left: 5px;
+            padding: 5px 5px;
+            align-content: center;
+            margin-bottom: 5px;
+        }
+
+        #review-detail {
+            float: right;
+            width: max-content;
+            height: fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 10px;
+            padding-top: 5px;
+        }
+
+        .radio-btn{
+            opacity:0;
+        }
+        .radio-btn label{
+            padding: 2px 2px;
+        }
+        input[type=radio] {
+            display:none;
+        }
+        #review-detail input[type=radio]:checked +label{
+            font-weight:bold;
+            background-color:#F2EEE2;
+        }
+        #move_review_write {
+            float:initial;
+            text-align:center;
+            padding: 5px 5px;
+            background-color:#F2EEE2;
+            border:1px solid #02643E;
+            color:#02643E;
+            cursor: pointer;
+            margin-left:10px;
+        }
+        #review_1, #review_2 {
+            width: 470px;
+            height: fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #good-btn{
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+
+        /* footer {
+            text-align: center;
+            background-color: #E3F1E2;
+            background-color:#444;
+            margin-top: 30px;
+            padding: 20px;
+            clear: both;
+            font-size : 10px;
+        } */
+    </style>
+</head>
+<body>
+    {% extends "mep_registration.html" %}
+    
+    {% block section %}
+    <div id="container">
+
+        <main>
+            <div id="info-and-photoreview" >
+            <div id="information"> <!--식당 이름, 별점 확인-->
+                <h1 style="font-size:43px; margin-bottom:10px; margin-left:35px; margin-right:35px; color: black;">{{data.name}}</h1>
+                <div class="star-rate"> <!--별점-->
+                    <img src="/static/images/star.png" width="45px" height="45px">
+                    <span style="font-size: 40px;">4.5</span>
+                </div>
+            </div>
+        
+                <!--   <div id="photo-reviews"> 사진리뷰 모음
+                <ul>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                    <li><img src="../static/images/review1.jpg" alt="리뷰 사진"></li>
+                </ul>
+            </div> -->
+            
+            </div>
+            <div id="hashtag-and-detail">
+            <div id="hashtag-reviews">
+                <ul>
+                    <li>#"음식이 맛있어요"<span id="num">20</span></li>
+                    <li>#"가성비가 좋아요"<span id="num">18</span></li>
+                    <li>#       "친절해요"<span id="num">15</span></li>
+                    <li>#"매장이 청결해요"<span id="num">15</span></li>
+                    <li>#"재료가 신선해요"<span id="num">13</span></li>
+                    <li>#"혼밥하기 좋아요"<span id="num">12</span></li>
+                    <li>#    "양이 많아요"<span id="num">11</span></li>
+                    <li>#"주차 할 수 있어요"<span id="num">8</span></li>
+                    <li>#"대기시간이 길어요"<span id="num">5</span></li>
+                    <li>#"접근성이 좋아요"<span id="num">4</span></li>
+                </ul>
+            </div>
+
+            <div id="review-detail">
+                <h2>
+                    1,232개의 리뷰
+                    <span style="font-size:5px;">
+                    <input type="radio" class="radio-btn" id="arrange-recent" name="arrange-method" value="recent">
+                    <label for="arrange-recent">최신순/</label>
+                    <input type="radio" class="radio-btn" id="arrange-best" name="arrange-method" value="best">
+                    <label for="arrange-best">추천순</label>
+                    </span>
+                    <button type="button" id="move_review_write" onclick = "window.location.href ='/review_write/{{data.name}}/'">리뷰작성하기</button>
+                </h2>
+                <div id="review_1">
+                    <span style="font-size:18px; color:green; margin-left:10px; margin-right:10px; float:left">이데서열꼴찌</span>
+                    <span id="date" style="font-size:4px; color:#555; margin-right:20px;">2022-09-12</span>
+                    <img src="/static/images/star.png" width="25px" height="25px">
+                    <span style="font-size: 17px;">{{data.review_star}}</span><br>
+                    <img src="/static/images/review1.jpg" alt="리뷰사진" style="width:80px;height:100px;">
+                    <span style="font-size:8px; text-align:center;">{{data.review_string}}</span>
+                    <button type="button" id="good-btn" onclick=""><img src="/static/images/good.png" style="width:20px; height:20px;"></button>
+                </div>
+                <div id="review_2">
+                    <span style="font-size:18px; color:green; margin-left:10px; margin-right:20px; float:left">이데댕김</span>
+                    <span id="date" style="font-size:4px; color:#555; margin-right:20px;">2022-10-12</span>
+                    <img src="/static/images/star.png" width="25px" height="25px">
+                    <span style="font-size: 17px;">{{data.review_star}}</span><br>
+                    <img src="/static/images/review1.jpg" alt="리뷰사진" style="width:80px;height:100px;">
+                    <span style="font-size:8px;">{{data.review_string}}</span>
+                    <button type="button" id="good-btn" onclick=""><img src="/static/images/good.png" style="width:20px; height:20px;"></button>
+                </div>
+
+            </div>
+        </div>
+        </main>
+
+
+    </div>
+     {% endblock section %}
+</body>
+</html>
