@@ -1,0 +1,140 @@
+        * {
+             box-sizing: border-box;
+             font-family: 'NanumGothicExtraBold';
+        }
+
+        html {
+             scroll-behavior: smooth;
+        }
+          
+        .main_btn {
+             white-space: nowrap;
+
+             display: flex;
+             justify-content:flex-end;
+        }
+        /** banner section **/
+
+        .main_banner {
+             background-color: #02643E;
+             padding: 20px 0px 0px 0px;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+             min-height: 914px;
+
+             display: flex;
+             flex-direction:column;
+             width: 100%;
+        }
+
+        .login_btn {
+             color: white;
+             background-color: #02643E;
+             border: none;
+             font-size: large;
+        }
+        .join_btn {
+             color: white;
+             background-color: #02643E;
+             border: none;
+             font-size: large;
+        }
+        .like {
+             background-color: #02643E;
+             border: none;
+        }
+          
+        .logo {
+             width: 50%;
+             margin: auto;
+         }
+
+        .main_banner2 {
+             height: auto;
+             background-color: #E3F1E2;
+             padding: 10px;
+
+             display: flex;
+             justify-content:flex-start;
+             flex-direction: row;
+             flex-wrap: nowrap;
+        }
+          
+          @media ( max-width: 800px ) {
+              .main_banner2 {
+                  display: block;
+              }
+          }
+          
+          
+        .category, .banner2-btns{
+             display: flex;
+             justify-content:flex-start;
+             flex-direction: row;
+             flex-wrap: nowrap;
+        }
+          
+        .category>button, .banner2-btns>button {
+             background-color: #E3F1E2;
+             position: relative;
+             white-space: nowrap;
+             width: 100%;
+             margin: auto 5%;
+             border: none;
+             font-size: large;
+
+        }
+          
+        .banner2-btns {
+            margin-left:auto;
+        }
+
+        .weather {
+             font-size: large;
+             text-align: center;
+             padding: 30px;
+        }
+          
+        .store_list {
+             width: 92%;
+             margin: 0px auto 0px auto;
+        }
+          
+        .card {
+             margin: 0px 5px 10px 5px;
+
+        }
+          
+        .card-title {
+             text-align: center;
+             margin-bottom: 0px;
+        }
+          
+        .score {
+             text-align: center;
+        }
+
+        .to_youtube {
+             text-align: right;
+             margin: 30px 0px 0px 0px;
+        }
+          
+        .card > img {
+             height: 60%;
+             width: 90%;
+             margin: 20px 20px 10px 20px;
+        }
+
+        footer {
+             font-size: 10px;
+             text-align: center;
+             background-color: #E3F1E2;
+             margin-top: 30px;
+             padding: 20px;
+              
+             width: 100%;
+             height: 85px;
+        }
+
+
+
