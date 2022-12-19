@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  
+      <title>맛집 세부 화면</title>
+      
+      <style>
+        body{
+            font-family: 'NanumGothic'; 
+        }
+        * {
+          box-sizing: border-box;
+        }
+
+        #pagebody {
+          font-family: NanumGothicLight;
+          background: white;
+        }
+
+
+        .blog{
+            margin: 0 auto;
+            width: 200px;
+            height: 160px;
+        }
+
+        #pagesection {   
+          float: center;
+          width: 65%;
+          margin-top: 4%;
+        }
+
+       
+
+
+        /* Add a card effect for articles */
+        .card {
+          background-color: white;
+          padding: 20px;
+          margin-top: 30px;
+          border: 1px rgba(0, 0, 0, 0.175) solid;
+          border-radius: 0.375rem;
+          box-shadow: 0px 0px 10px 0px lightgray;
+
+        }
+
+
+        table, th, td{
+            border: none;
+            font-size: middle;
+            margin: auto;
+        }
+          
+
+        .space{
+            padding: 3px 3px;
+        }
+
+        .hashdiv{
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+            font-size: 23px;
+            background: #F2EEE2;
+            width: 85%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hashdivmore{
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+            font-size: 15px;
+            background: #E3F1E2;
+            width: 25%;
+            height: 25px;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        .name{
+            border: 1px rgba(0, 0, 0, 0.175) solid;
+            border-radius: 0.375rem;
+            box-shadow: ;
+            border: 1px solid black;
+            width: 30%; 
+            float: left;
+        }
+
+        #pagetextarea {
+            height: 80%;
+            width: 80%;
+            border: none;
+            resize: none;
+            margin: 5px;
+        }
+
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+          section, aside {   
+            width: 70%;
+            padding: 0;
+          }
+        }
+
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+          nav a {
+            float: none;
+            width: 100%;
+          }
+        }
+      </style>
+      <script>
+          const print_talk = () =>{
+              const input_value = document.getElementById("input_talk").value;
+              
+              document.getElementById('talk1').innerHTML=document.getElementById('talk2').innerText;
+              document.getElementById('talk2').innerHTML=document.getElementById('talk3').innerText;
+              document.getElementById('talk3').innerHTML=document.getElementById('talk4').innerText;
+              document.getElementById('talk4').innerHTML=document.getElementById('talk5').innerText;
+             
+              document.getElementById('talk5').innerHTML=input_value;
+          }
+      
+      </script>
+
+  </head>
+    
+  <body id=pagebody>
+      
+      {% extends "mep_registration.html" %}  
+      
+      {% block section %}
+   
+      <!--메인-->
+      <section id="pagesection">
+          <!--맛집 세부 정보-->
+		  <div class="card" style="border:none; box-shadow:none; text-align:center; margin: auto;">
+
+              <div style="background: #F2EEE2; font-size: 20px; border: none; box-shadow: none; padding:20px; position:relative; display: inline-block;">
+                  <div class="mep_reg_name" style="text-decoration: underline bb">
+                      <p style="text-decoration: underline; text-underline-position:under; font-size: 50px; font-weight:bold;">{{data.name}}</p>
+                  </div>
+                  <div>
+    <table style="width: 75%;">
+    <thead>
+      <tr>
+        <th><img src="/static/images/star.png" alt="star" width="40px;" height="40px;" align="right"></th>
+          <th><h2 align="left">{{avg_rate|round(1)}}</h2></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+            📞 {{data.tel}}
+        </td>
+        
+        <td>
+            ⏰ {{data.time}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href = "{{data.position}}" style="text-decoration: none; color: black;">🚩 지도로 위치 확인</a>
+        </td>
+        <td>
+            💰 {{data.price}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+            📆 예약 {{data.reservation}}
+        </td>
+      </tr>
+    </tbody>
+    </table>
+                  </div> 
+              </div>
+          </div>
+  
+      <div class="blank"></div>
+
+
+		  <div class="card" style="text-align: center; padding: 30px;  margin: auto;">             
+              <div >                
+                  <a href=""><img style="object-fit: cover; width: 60%; aspect-ratio: 1 / 1;" src="/{{data.img_path}}" alt="food"></a>
+              </div>           
+              <div>
+                  <!--메뉴 정보 페이지로-->
+                  <form method="post" action="/show_menu/<name>/">
+                      <input type="hidden" name="restaurant_name" value="{{data.name}}">
+                      <div style="font-size: 15px; height: 30px; background: #E3F1E2; width: 30%; margin: 10px auto; text-align; center; border: 1px rgba(0, 0, 0, 0.175) solid;
+                      border-radius: 0.375rem; box-shadow: ;">
+                          <a href="/show_menu/{{data.name}}/" style="text-decoration: none; font-size: large; color: black;" >
+                              메뉴 보기</a>
+                      </div>
+                  </form>
+              </div>
+              <div>
+                  <!--리뷰 보기 페이지로-->
+                  <form method="post" action="/review_check/<name>/">
+                      <input type="hidden" name="restaurant_name" value="{{data.name}}">
+                      <div class="hashdivmore" style="font-size: 15px; height: 30px; background: #E3F1E2; width: 30%; margin: 10px auto; text-align; center; border: 1px rgba(0, 0, 0, 0.175) solid;
+                      border-radius: 0.375rem; box-shadow: ;">
+                          <a href="/review_check/{{data.name}}/" style="text-decoration: none; font-size: large; color: black;">
+                          리뷰 보기</a>
+                          </div>
+                  </form>
+              </div>
+	     </div>
+
+
+    <div class="blank"></div>
+	<div class="card" style="text-align : center;  margin: auto;">
+		<div>
+			<a href="/dessert"><img height="60%;" width="60%;" src="/static/images/desert.png" alt="dessert" style="float: center;"></a>
+        </div>
+	</div>
+
+	 <div class="blank"></div>
+ </section>
+
+
+      
+  
+
+{% endblock section %}
+      
+</body>
+</html>

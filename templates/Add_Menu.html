@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>ADD MENU</title>
+
+  <style>
+     body {
+       font-family: 'NanumGothic';
+     }
+
+   
+    .mep_post {
+      width : 90%;
+      height : 300px;
+      /* min-width : 800px; */
+      margin : 20px auto 20px auto;
+      padding : 20px;
+      background-color : #F2EEE2;
+      display : flex;
+    }
+
+    .input-file-button {
+        width: 60px;
+        height: 80px;
+        background-color: #ddd;
+        font-size: 50px;
+        color: #444;
+        text-align: center;
+        margin: 40px 20px;
+        padding: 5px 10px;
+        cursor: pointer;
+        display: block;
+    }
+
+    input {
+      width : 100%;
+      height : 30px;
+      font-size : 15px;
+      color : gray;
+      border: 1px rgba(0, 0, 0, 0.175) solid;
+      border-radius: 0.375rem;
+      box-shadow: ;
+    }
+
+    .adding_input {
+      width: 95%;
+      margin : 10px;
+    }
+
+    .adding_btn {
+      margin : 60px 25% 0px auto;
+    }
+
+    .adding_btn > input {
+      width: 50px;
+      height: 30px;
+
+      background-color: #E3F1E2;
+      color: gray;
+
+      border-radius: 50px;
+      border: 1px solid darkgray;
+        
+      cursor: pointer;
+    }
+
+  </style>
+
+
+</head>
+    
+<body style="background-color: white;">    
+<!-- Header -->
+    {% extends "mep_registration.html" %}   
+    
+     {% block back %}
+        <a href="/show_menu/{{name}}/"><img class="back-btn" src="/static/images/backbar.png"></a>
+     {% endblock %}
+    
+    {% block section %}
+  <div style="background-color:white; border:10px solid white;">
+
+<!--메뉴 추가 박스-->
+      <form action="/submit_show_menu" enctype="multipart/form-data" method="post">
+          <h1 style="text-align: center; color: black">
+              {{name}}
+          </h1>
+        <div class="mep_post" id="adding_box" style="width: 80%;"> 
+                <!-- 사진 추가 버튼 -->
+              <div style="float: left; width: 20%;">
+                <label class="input-file-button" for="input-file" style="background-color:white; margin-top:30px;">+</label>
+                <input type="file" name="file" id="input-file" style="display:none">
+              </div>
+                <!--name={{name}}-->
+                <input type="hidden" name="restaurant_name" value="{{name}}">
+                <!-- 텍스트 입력 박스 -->
+              <div style="float: right; width: 80%; height: 90%; margin: 10px;">
+                <div class="adding_input">
+                  <input id="text" class="form-control" name="menu_name" placeholder="메뉴 이름을 입력하세요">
+                </div>
+                <div class="adding_input">
+                  <input id="text" class="form-control" name="menu_price" placeholder="메뉴 가격을 입력하세요">
+                </div>
+                <div class="adding_input">
+                  <input id="text" class="form-control" name="menu_info" placeholder="메뉴 소개를 입력하세요">
+                </div>
+                <!-- 등록, 취소 버튼 -->
+                <div class="adding_btn" style="text-align:center; clear:both;">
+                    <input type="submit" id="menu-upload-btn" value="등록" onclick="window.location.href = '/show_menu/{{name}}/'">
+                    <input type="reset" id="menu-clear-btn" value="취소" onclick="window.location.href = '/show_menu/{{name}}/'" >
+                </div>
+              </div>
+        </div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+          <div class="blank"></div>
+    </form>
+      
+  </div>
+
+     {% endblock section %}
+</body>
+</html>

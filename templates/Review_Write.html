@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리뷰등록화면</title>
+
+    <style>
+        
+        #bar2 {
+            background-color: #E3F1E2;
+            width: 100%;
+            height: 20px;
+            font-family: 'NanumGothic';
+        }
+        main {
+            background-color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+        #base {
+            width:100%;
+            text-align:center;
+        }
+        #bar3 {
+            width: 300px;
+            height: 2px;
+            background-color:black;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            justify-content: space-around;
+            padding: 0 0.2em;
+            text-align: center;
+            width: 5em;
+            margin: 0 auto;
+            margin-top: 0px;
+        }
+        .star-rating input {
+            display: none;
+        }   
+        .star-rating label {
+            -webkit-text-fill-color: #bbb; 
+            -webkit-text-stroke-width: 2.3px;
+            -webkit-text-stroke-color: #bbb;
+            cursor: pointer;
+        }  
+        .star-rating :checked ~ label {
+            -webkit-text-fill-color: gold;
+            -webkit-text-stroke-color: gold;
+        }  
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            -webkit-text-fill-color: #fff58c;
+            -webkit-text-stroke-color: #fff58c;
+        }
+
+        textarea {
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #text-and-image {
+            width:100%;
+            height: fit-content;
+        }
+
+        .input-file-button{
+            width: 60px;
+            height: 80px;
+            background-color: #F2EEE2;
+            font-size: 50px;
+            color: #444;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display:block;
+        }
+        #hash-tag {width:90%; height:160px; overflow-x:auto; white-space:nowrap; margin:0 auto}
+        .hash-tag-list {
+            list-style: none;
+            width: 700px;
+            height: 100px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 0 auto;
+            margin-top: 30px;
+            columns: 3;
+            padding-left:5px;
+        }
+        .hash-tag-list li{
+            width:190px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px auto;
+            margin-right: 5px;
+            padding: 5px 10px;
+            float:left;
+        }
+
+        input[type="checkbox"] {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 1px solid #999;
+            appearance: none;
+            cursor: pointer;
+            transition: background 0.2s;
+          }
+
+        input[type="checkbox"]:checked {
+            background: #02643E;
+            border: none;
+        }
+        #review-upload-button {
+            float:initial;
+            text-align:center;
+            padding: 10px 15px;
+            background-color:#F2EEE2;
+            border:none;
+            cursor: pointer;
+        }
+
+
+        /*review check html*/
+        #info-and-photoreview{
+            margin-top: 25px;
+            width: fit-content;
+            margin:0 auto;
+        }
+        #information {
+            width: max-content;
+            height: 145px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            text-align: center;
+            background-color:#F2EEE2;
+            padding: 30px 20px;
+            float:left;
+            margin-right:45px;
+
+        }
+
+        #photo-reviews {
+            width: max-content;
+            height: 190px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 5px;
+            float:left;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        #photo-reviews ul{
+            list-style-type: none;
+            columns:4;
+            padding: 3px;
+        }
+        #photo-reviews li img{
+            width: 105px;
+            height:80px;
+            margin-left: 2px;
+            margin-bottom: 5px;
+
+        }
+
+        #hashtag-and-detail{
+            width: fit-content;
+            clear: both;
+            margin: 0 auto;
+
+        }
+        #hashtag-reviews {
+            padding: 2px;
+            float:left;
+            margin-right:45px;
+        }
+        #num {
+            float:right;
+            font-size: 13px;
+            color:#02643E;
+            text-align:center;
+            width:20px;
+            height:20px;
+            background-color:#F2EEE2;
+            border-radius:50%;
+        }
+        #hashtag-reviews ul {
+            list-style-type: none;
+            width:fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            height:fit-content;
+            column-count: 1;
+            align-content: center;
+            padding-left:0px;
+        }
+        #hashtag-reviews li{
+            width:250px;
+            padding-left:0px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px 5px auto auto;
+            margin-right: 5px;
+            margin-left: 5px;
+            padding: 5px 5px;
+            align-content: center;
+            margin-bottom: 5px;
+        }
+
+        #review-detail {
+            float: right;
+            width: max-content;
+            height: fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 10px;
+            padding-top: 5px;
+        }
+
+        .radio-btn{
+            opacity:0;
+        }
+        .radio-btn label{
+            padding: 2px 2px;
+        }
+        input[type=radio] {
+            display:none;
+        }
+        #review-detail input[type=radio]:checked +label{
+            font-weight:bold;
+            background-color:#F2EEE2;
+        }
+        #move_review_write {
+            float:initial;
+            text-align:center;
+            padding: 5px 5px;
+            background-color:#F2EEE2;
+            border:1px solid #02643E;
+            color:#02643E;
+            cursor: pointer;
+            margin-left:10px;
+        }
+        #review_1, #review_2 {
+            width: 470px;
+            height: fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #good-btn{
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+
+    </style>
+</head>
+    
+<body>
+    <!--헤더-->
+    {% extends "mep_registration.html" %}
+    
+        {% block back %}
+            <a href="/review_check/{{name}}/"><img class="back-btn" src="/static/images/backbar.png"></a>
+        {% endblock %}
+    
+     {% block section %}
+    
+    <!--메인-->
+    <div id="container">
+
+        <main>
+            <form action="/submit_review" enctype="multipart/form-data" method="post">
+                <div id="base"> <!--식당 이름, 밑줄-->
+                    <h1 style="font-weight: bold; line-height: 70%; color: black;">{{data.name}}</h1>
+                    <div id="bar3"></div>
+
+                    <!--별점 select-->
+                    <h3 style="line-height: 30%">별점을 입력해주세요.</h3>
+                        <select style="float: center;" id="review_star" name="review_star">
+                                <option selected>5</option>
+                                <option>4.5</option>
+                                <option>4</option>
+                                <option>3.5</option>
+                                <option>3</option>
+                                <option>2.5</option>
+                                <option>2</option>
+                                <option>1.5</option>
+                                <option>1</option>
+                                <option>0.5</option>
+                        </select>
+                    <br>
+                    <div class="blank"></div>
+                    <div id="text-and-image">
+                        <!--사진 파일 등록-->
+                        <div class="pict-review">
+                            <label class="input-file-button" for="input-file">+</label>
+                            <input type="file" id="input-file" style="display:none;" name="file">
+                        </div>
+                        <div class="text-review"> <!--텍스트 리뷰 작성 칸-->
+                            <textarea style ="width: 80%;"name="review_string" id="review_string" cols="100%" rows="10%" placeholder="솔직한 리뷰를 작성해주세요."></textarea>
+                        </div>                    
+                    </div>
+                    <input type="hidden" name="review_nickname" value="{{session['nickname']}}">
+                   
+                    <div class="review-upload"> <!--리뷰 등록하기 버튼-->
+                        <input type="submit" id="review-upload-button" value="리뷰 등록하기" onclick="window.location.href = '/review_check/{{data.name}}/'"onclick="window.location.href = '/review_check/{{data.name}}/'">
+                    </div>
+                     <form method="post" action="/review_check/<name>/">
+                        <input type="hidden" name="review_name" value="{{data.name}}">
+                    </form>
+                </div>
+            </form>
+        </main>    
+
+  {% endblock section %}
+    </div>
+</body>
+</html>

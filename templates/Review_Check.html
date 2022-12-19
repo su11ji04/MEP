@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리뷰조회화면</title>
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            font-family: 'NanumGothic';
+        }
+        
+        #pagebody {
+          background: white;
+        }
+         
+        #bar2 {
+            background-color: #E3F1E2;
+            width: 100%;
+            height: 20px;
+        }
+        main {
+            background-color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+        #base {
+            width:100%;
+        }
+        #bar3 {
+            width: 300px;
+            height: 2px;
+            background-color:black;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            justify-content: space-around;
+            padding: 0 0.2em;
+            text-align: center;
+            width: 5em;
+            margin: 0 auto;
+            margin-top: 0px;
+        }
+        .star-rating input {
+            display: none;
+        }   
+        .star-rating label {
+            -webkit-text-fill-color: #bbb; 
+            -webkit-text-stroke-width: 2.3px;
+            -webkit-text-stroke-color: #bbb;
+            cursor: pointer;
+        }  
+        .star-rating :checked ~ label {
+            -webkit-text-fill-color: gold;
+            -webkit-text-stroke-color: gold;
+        }  
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            -webkit-text-fill-color: #fff58c;
+            -webkit-text-stroke-color: #fff58c;
+        }
+
+        textarea {
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #text-and-image {
+            width:100%;
+            height: fit-content;
+        }
+
+        .input-file-button{
+            width: 60px;
+            height: 80px;
+            background-color: #F2EEE2;
+            font-size: 50px;
+            color: #444;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display:block;
+        }
+        #hash-tag {width:90%; height:160px; overflow-x:auto; white-space:nowrap; margin:0 auto}
+        .hash-tag-list {
+            list-style: none;
+            width: 700px;
+            height: 100px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 0 auto;
+            margin-top: 30px;
+            columns: 3;
+            padding-left:5px;
+        }
+        .hash-tag-list li{
+            width:190px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px auto;
+            margin-right: 5px;
+            padding: 5px 10px;
+            float:left;
+        }
+
+        input[type="checkbox"] {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 1px solid #999;
+            appearance: none;
+            cursor: pointer;
+            transition: background 0.2s;
+          }
+
+        input[type="checkbox"]:checked {
+            background: #02643E;
+            border: none;
+        }
+        #review-upload-button {
+            float:initial;
+            text-align:center;
+            padding: 10px 15px;
+            background-color:#F2EEE2;
+            border:none;
+            cursor: pointer;
+        }
+
+
+        /*review check html*/
+        #info-and-photoreview{
+            margin-top: 25px;
+            width: fit-content;
+            margin:0 auto;
+        }
+        #information {
+            width: max-content;
+            height: max-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            text-align: center;
+            background-color:#F2EEE2;
+            padding: 10px 0px 10px 0px ;
+            float:left;
+            margin: 20px auto;
+        }
+        .star-rate {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #hashtag-and-detail{
+            width: fit-content;
+            clear: both;
+            margin:  0 auto;
+
+        }
+        #hashtag-reviews {
+            padding: 2px;
+            float:left;
+            margin-right:45px;
+        }
+        #num {
+            float:right;
+            font-size: 13px;
+            color:#02643E;
+            text-align:center;
+            width:20px;
+            height:20px;
+            background-color:#F2EEE2;
+            border-radius:50%;
+        }
+        #hashtag-reviews ul {
+            list-style-type: none;
+            width:fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            height:fit-content;
+            column-count: 1;
+            align-content: center;
+            padding-left:0px;
+        }
+        #hashtag-reviews li{
+            width:250px;
+            padding-left:0px;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin: 5px 5px auto auto;
+            margin-right: 5px;
+            margin-left: 5px;
+            padding: 5px 5px;
+            align-content: center;
+            margin-bottom: 5px;
+        }
+
+        #review-detail {
+            width: 100%;
+            text-align: center;
+            height: fit-content;
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            padding: 10px;
+            padding-top: 5px;
+        }
+
+        .radio-btn{
+            opacity:0;
+        }
+        .radio-btn label{
+            padding: 2px 2px;
+        }
+        input[type=radio] {
+            display:none;
+        }
+        #review-detail input[type=radio]:checked +label{
+            font-weight:bold;
+            background-color:#F2EEE2;
+        }
+        #move_review_write {
+            float:initial;
+            text-align:center;
+            padding: 5px 5px;
+            background-color:#F2EEE2;
+            border:1px solid #02643E;
+            color:#02643E;
+            cursor: pointer;
+            margin-left:10px;
+        }
+        #review_1, #review_2 {
+            border: 1px solid rgba(0,0,0,0.175);
+            border-radius: 0.375rem;
+            margin-right: 500px;
+            margin-bottom: 200px;
+            /* margin: auto 5px; */
+        }
+
+        #good-btn{
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .blank {
+          padding: 3px;
+        }
+        
+    </style>
+</head>
+<body>
+<!-- header -->        
+    {% extends "mep_registration.html" %}
+        
+     {% block back %}
+        <a href="/mep_page/{{name}}/"><img class="back-btn" src="/static/images/backbar.png"></a>
+     {% endblock %}
+    
+    {% block section %}
+    
+    <!--메뉴-->
+    <div id="pagebody">   
+        <main>
+            <div id="info-and-photoreview" >
+                <div style="padding: 15px;"></div>
+                <div id="information"> <!--식당 이름, 별점 확인-->
+                    <h1 style="font-size:43px; margin-bottom:10px; margin-left:35px; margin-right:35px; color:black">{{name}}</h1>
+                    <div class="star-rate"> <!--별점-->
+                        <img src="/static/images/star.png" width="45px" height="45px">
+                        <span style="font-size: 40px;">{{avg_rate|round(1)}}</span>
+                    </div>
+                </div>
+            </div>
+            <div id="hashtag-and-detail" style="margin: auto; width: 100%;">
+                <div class="blank"></div>
+                <div id="review-detail"  style="margin: auto; height: 100%; width: 1400px;">
+                    <!--리뷰리스트-->
+                        <h2>
+                                {{ total }}개의 리뷰
+                            <button type="button" id="move_review_write" onclick = "window.location.href ='/review_write/{{name}}/'">리뷰작성하기</button>
+                        </h2>
+                    
+                        {% for data in data %}
+                        {% if data.review_name == " " %}
+                        {% else %}
+                        <div style="margin: auto; width: 1800px; height: 80%;">
+                                <div id="review_1" style="margin-left: 11%; width: 1000px; height: 230px; margin-bottom: 20px;">
+                                    <table style="width: 100%; height: 230px; margin: auto;">
+                                        <tr>
+                                            <th rowspan="2" style="width: 30%;"><img src="/{{data.review_img_path}}" alt="리뷰사진" width = "180px" height = "200px" style="object-fit: cover;"></th>
+                                            <td style="height: 80px;">
+                                                <table style="float: center; width: 100%; height: 100%; height: 100%;">
+                                                    <tr>
+                                                        <td><div style="padding: 12px;"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width: 70%; text-align: left; font-size: 18px;"><p style="text-decoration: underline; text-underline-position:under; font-size: 20px; font-weight:bold;"> <!--리뷰 닉네임-->
+                                                            {% if data.review_nickname == "" %}
+                                                                🍀익명
+                                                            {% else %}
+                                                                🍀{{data.review_nickname}}
+                                                            {% endif %}
+                                                            </p></td><!--리뷰별점-->
+                                                        <td style="width: 8%"><img src="/static/images/star.png" width="25px" height="25px"></td>
+                                                        <td style="width: 8%"><div style="font-size: 17px; float: left; text-align: center;">{{data.review_star}}</div></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr><!--리뷰내용-->
+                                            <td style="float: center; text-align: center; width: 65%; padding-right: 13%;"><div style="font-size: 15px; float: center; text-align: center; font-size: 18px;">"{{data.review_string}}"</div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        {% endif %}
+                    {% endfor %}
+                     </div>             
+                </div>
+        </main>   
+      </div>    
+     {% endblock section %}
+</body>
+</html>
